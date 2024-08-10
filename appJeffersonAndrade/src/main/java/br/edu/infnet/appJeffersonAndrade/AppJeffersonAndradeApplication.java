@@ -12,5 +12,3 @@ public class AppJeffersonAndradeApplication {
 	}
 
 }
-
-// Parei no minuto 1:16:00
