@@ -1,0 +1,5 @@
+Cruiser;883;Electric
+Sport;1000;Kick
+Touring;1200;Electric
+Dirt;250;Kick
+Standard;600;Electric

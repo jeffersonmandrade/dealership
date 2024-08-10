@@ -1,0 +1,10 @@
+Harley-Davidson;Sportster;Black;2020;Gasoline
+Yamaha;MT-07;Gray;2021;Gasoline
+Kawasaki;Ninja;Green;2022;Gasoline
+Ducati;Panigale;Red;2023;Gasoline
+BMW;R1250GS;Blue;2021;Gasoline
+Toyota;Camry;Silver;2022;Gasoline
+Ford;F-150;Black;2021;Gasoline
+Honda;Accord;White;2023;Hybrid
+Chevrolet;Malibu;Red;2020;Gasoline
+Nissan;Altima;Blue;2022;Gasoline
