@@ -3,9 +3,12 @@ package br.edu.infnet.appJeffersonAndrade.domain;
 
 public class Motorcycle extends Automobile {
 
+    private Integer id;
     private String motorcycleType;
     private int engineDisplacement;
     private String startType;
+
+
 
     public String getMotorcycleType() {
         return motorcycleType;

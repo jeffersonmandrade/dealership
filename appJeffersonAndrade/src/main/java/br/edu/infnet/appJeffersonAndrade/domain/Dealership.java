@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Dealership {
 
+    private Integer id;
     private String name;
     private String email;
     private String phone;

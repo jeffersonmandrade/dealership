@@ -2,10 +2,20 @@ package br.edu.infnet.appJeffersonAndrade.domain;
 
 public class Automobile {
 
-    private Integer id ;
+    private Integer id;
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     private String brand;
     private String model;
     private String color;
+
+    public Integer getId() {
+        return id;
+    }
+
     private int year;
     private String fuelType;
 
@@ -16,6 +26,7 @@ public class Automobile {
         this.color = color;
         this.model = model;
     }
+
 
     public String getFuelType() {
         return fuelType;

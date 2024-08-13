@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Stream;
 
 @Component
@@ -20,6 +23,8 @@ public class DealershipLoader implements ApplicationRunner {
         String filePath = "appJeffersonAndrade/files/dealership.txt";
 
         Dealership dealership = new Dealership();
+         AtomicReference<Integer> id = new AtomicReference<>(1);
+        Map<Integer, Automobile> map = new HashMap<Integer, Automobile>();
 
         try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
             lines.forEach(line -> {
@@ -45,7 +50,13 @@ public class DealershipLoader implements ApplicationRunner {
                         String motorcycleType = elements[6].trim();
                         int engineDisplacement = Integer.parseInt(elements[7].trim());
                         String startType = elements[8].trim();
+
                         Motorcycle moto = new Motorcycle(brand, fuelType, year, color, model, engineDisplacement, startType, motorcycleType);
+
+                        moto.setId(id.get());
+                        map.put(id.get(), moto);
+                        id.set(id.get() + 1);
+
                         dealership.getAutomobiles().add(moto);
                         System.out.println(dealership.toString());
                         break;
@@ -58,8 +69,15 @@ public class DealershipLoader implements ApplicationRunner {
                         int numberOfDoors = Integer.parseInt(elements[6].trim());
                         double trunkSize = Double.parseDouble(elements[7].trim());
                         boolean hasSunroof = Boolean.parseBoolean(elements[8].trim());
+
                         Car car = new Car(brand, fuelType, year, color, model, numberOfDoors, trunkSize, hasSunroof);
+
+                        car.setId(id.get());
+                        map.put(id.get(), car);
+                        id.set(id.get() + 1);
+
                         dealership.getAutomobiles().add(car);
+
                         System.out.println(dealership.toString());
                         break;
                     default:
@@ -68,6 +86,9 @@ public class DealershipLoader implements ApplicationRunner {
             });
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        for(Automobile automobile : map.values()) {
+            System.out.println("[Automobile]: " + automobile);
         }
     }
 }
