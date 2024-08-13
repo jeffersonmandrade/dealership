@@ -16,19 +16,19 @@ import java.util.stream.Stream;
 public class AutomobileLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        String filePath = ("appJeffersonAndrade/automobile.txt");
+        String filePath = ("appJeffersonAndrade/files/automobile.txt");
 
         try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
             lines.forEach(line -> {
-                String[] elements = line.split(";");
-                 String brand = elements[0].trim();
-                 String model = elements[1].trim();
-                 String color = elements[2].trim();
-                 int year = Integer.parseInt(elements[3].trim());
-                 String fuelType = elements[4].trim();
-
-                Automobile automobile = new Automobile(brand,model,year,color,fuelType);
-                System.out.println(automobile);
+//                String[] elements = line.split(";");
+//                 String brand = elements[0].trim();
+//                 String model = elements[1].trim();
+//                 String color = elements[2].trim();
+//                 int year = Integer.parseInt(elements[3].trim());
+//                 String fuelType = elements[4].trim();
+//
+//                Automobile automobile = new Automobile(brand,model,year,color,fuelType);
+//                System.out.println(automobile);
             });
         } catch (IOException e) {
             e.printStackTrace();

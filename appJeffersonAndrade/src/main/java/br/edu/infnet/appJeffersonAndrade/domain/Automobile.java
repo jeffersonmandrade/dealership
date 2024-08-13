@@ -1,6 +1,8 @@
 package br.edu.infnet.appJeffersonAndrade.domain;
 
 public class Automobile {
+
+    private Integer id ;
     private String brand;
     private String model;
     private String color;
@@ -13,10 +15,6 @@ public class Automobile {
         this.year = year;
         this.color = color;
         this.model = model;
-    }
-
-    public Automobile() {
-
     }
 
     public String getFuelType() {

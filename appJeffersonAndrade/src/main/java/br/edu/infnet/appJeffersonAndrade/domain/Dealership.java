@@ -1,5 +1,6 @@
 package br.edu.infnet.appJeffersonAndrade.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Dealership {
@@ -10,12 +11,8 @@ public class Dealership {
     private String cnpj;
     private List<Automobile> automobiles;
 
-    public Dealership(String name, String email, String phone, String cnpj) {
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-        this.cnpj = cnpj;
-        this.automobiles =  List.of();
+    public Dealership() {
+        this.automobiles = new ArrayList<Automobile>();
     }
 
     public String getName() {

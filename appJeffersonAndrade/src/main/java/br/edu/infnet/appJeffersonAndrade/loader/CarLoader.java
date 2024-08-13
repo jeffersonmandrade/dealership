@@ -18,19 +18,19 @@ public class CarLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        String filePath = ("appJeffersonAndrade/car.txt");
+        String filePath = ("appJeffersonAndrade/files/car.txt");
 
         try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
-            lines.forEach(line -> {
-                String[] elements = line.split(";");
-
-                int numberOfDoors = Integer.parseInt(elements[0].trim());
-                double trunkSize = Double.parseDouble(elements[1].trim());
-                boolean hasSunroof = Boolean.parseBoolean(elements[2].trim());
-
-                Car car = new Car(numberOfDoors,trunkSize, hasSunroof);
-                System.out.println(car);
-            });
+//            lines.forEach(line -> {
+//                String[] elements = line.split(";");
+//
+//                int numberOfDoors = Integer.parseInt(elements[0].trim());
+//                double trunkSize = Double.parseDouble(elements[1].trim());
+//                boolean hasSunroof = Boolean.parseBoolean(elements[2].trim());
+//
+//                Car car = new Car(numberOfDoors,trunkSize, hasSunroof);
+//                System.out.println(car);
+//            });
         } catch (IOException e) {
             e.printStackTrace();
         }

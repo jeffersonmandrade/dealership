@@ -17,18 +17,18 @@ public class MotorcycleLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        String filePath = ("appJeffersonAndrade/motorcycle.txt");
+        String filePath = ("appJeffersonAndrade/files/motorcycle.txt");
 
         try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
             lines.forEach(line -> {
-                String[] elements = line.split(";");
-
-                String motorcycleType = elements[0].trim();
-                int engineDisplacement = Integer.parseInt(elements[1].trim());
-                String startType = elements[2].trim();
-
-                Motorcycle moto = new Motorcycle(engineDisplacement, motorcycleType, startType);
-                System.out.println(moto);
+//                String[] elements = line.split(";");
+//
+//                String motorcycleType = elements[0].trim();
+//                int engineDisplacement = Integer.parseInt(elements[1].trim());
+//                String startType = elements[2].trim();
+//
+//                Motorcycle moto = new Motorcycle(engineDisplacement, motorcycleType, startType);
+//                System.out.println(moto);
             });
         } catch (IOException e) {
             e.printStackTrace();

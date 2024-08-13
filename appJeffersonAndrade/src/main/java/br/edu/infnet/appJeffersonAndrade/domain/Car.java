@@ -1,16 +1,18 @@
 package br.edu.infnet.appJeffersonAndrade.domain;
 
 public class Car  extends Automobile {
+
     private  Integer numberOfDoors;
     private  Double  trunkSize;
     private boolean hasSunroof;
 
-    public Car(Integer numberOfDoors, Double trunkSize, boolean hasSunroof) {
+    public Car(String brand, String fuelType, int year, String color, String model,Integer numberOfDoors, Double trunkSize, boolean hasSunroof) {
+        super(brand, fuelType, year, color, model);
         this.numberOfDoors = numberOfDoors;
         this.trunkSize = trunkSize;
         this.hasSunroof = hasSunroof;
     }
-
+    
     public Double getTrunkSize() {
         return trunkSize;
     }
