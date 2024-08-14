@@ -12,6 +12,7 @@ public class Automobile {
     private String model;
     private String color;
 
+
     public Integer getId() {
         return id;
     }
@@ -26,7 +27,7 @@ public class Automobile {
         this.color = color;
         this.model = model;
     }
-
+    public Automobile(){};
 
     public String getFuelType() {
         return fuelType;

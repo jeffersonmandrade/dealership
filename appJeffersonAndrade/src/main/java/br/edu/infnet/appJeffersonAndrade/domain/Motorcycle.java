@@ -21,6 +21,9 @@ public class Motorcycle extends Automobile {
         this.motorcycleType = motorcycleType;
     }
 
+    public  Motorcycle(){
+
+    }
 
     public void setMotorcycleType(String motorcycleType) {
         this.motorcycleType = motorcycleType;
