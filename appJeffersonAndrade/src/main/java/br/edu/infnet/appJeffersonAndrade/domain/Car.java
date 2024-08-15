@@ -3,11 +3,11 @@ package br.edu.infnet.appJeffersonAndrade.domain;
 public class Car  extends Automobile {
 
     @Override
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    @Override
+
     public void setId(Integer id) {
         this.id = id;
     }
