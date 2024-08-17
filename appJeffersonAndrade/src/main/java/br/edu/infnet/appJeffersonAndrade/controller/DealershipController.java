@@ -13,7 +13,7 @@ public class DealershipController {
     @Autowired
     private DealershipService dealershipService;
 
-    @GetMapping("dealership/listar")
+    @GetMapping("dealership/list")
     public Collection<Dealership> listar() {
         return dealershipService.getAll();
     }

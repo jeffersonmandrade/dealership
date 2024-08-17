@@ -13,7 +13,7 @@ public class MotorcycleController {
     @Autowired
     private MotorcycleService motorcycleService;
 
-    @GetMapping("motorcycle/listar")
+    @GetMapping("motorcycle/list")
     public Collection<Motorcycle> getAllMotorcycles() {
 
         return motorcycleService.getAll();

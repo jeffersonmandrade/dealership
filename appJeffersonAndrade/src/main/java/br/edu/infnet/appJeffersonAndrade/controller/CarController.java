@@ -13,7 +13,7 @@ public class CarController {
     @Autowired
     private CarService carService;
 
-    @GetMapping("car/listar")
+    @GetMapping("car/list")
     public Collection<Car> getAllCars() {
        return carService.getAll();
     }

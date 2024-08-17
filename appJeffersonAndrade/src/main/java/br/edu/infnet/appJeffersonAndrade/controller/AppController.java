@@ -1,11 +1,13 @@
 package br.edu.infnet.appJeffersonAndrade.controller;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
-@RestController
+@Controller
 public class AppController {
 
-    public String  exibirMensagemAlow(){
-        return "Aplication On";
+    @GetMapping("/home")
+    public String home() {
+        return "home";
     }
 }
