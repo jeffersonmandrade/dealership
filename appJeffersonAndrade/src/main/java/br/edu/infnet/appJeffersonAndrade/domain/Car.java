@@ -2,17 +2,6 @@ package br.edu.infnet.appJeffersonAndrade.domain;
 
 public class Car  extends Automobile {
 
-    @Override
-    public int getId() {
-        return id;
-    }
-
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    private  Integer id;
     private  Integer numberOfDoors;
     private  Double  trunkSize;
     private boolean hasSunroof;

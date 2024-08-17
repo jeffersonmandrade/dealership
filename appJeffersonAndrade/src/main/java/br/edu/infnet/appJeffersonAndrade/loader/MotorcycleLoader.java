@@ -32,13 +32,13 @@ public class MotorcycleLoader implements ApplicationRunner {
                 String startType = elements[2].trim();
 
                 Motorcycle moto = new Motorcycle();
-                motorcycleService.inclusion(moto);
+                motorcycleService.create(moto);
                 System.out.println(moto);
             });
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for(Motorcycle m: motorcycleService.listar()){
+        for(Motorcycle m: motorcycleService.getAll()){
             System.out.println("[MotorCycle]: " + m);
     }
 

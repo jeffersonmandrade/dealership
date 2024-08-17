@@ -3,18 +3,9 @@ package br.edu.infnet.appJeffersonAndrade.domain;
 
 public class Motorcycle extends Automobile {
 
-    private int id;
     private String motorcycleType;
     private int engineDisplacement;
     private String startType;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getMotorcycleType() {
         return motorcycleType;

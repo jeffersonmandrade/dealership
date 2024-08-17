@@ -1,6 +1,6 @@
 package br.edu.infnet.appJeffersonAndrade.domain;
 
-public class Automobile {
+public abstract class Automobile {
 
     private int id;
     private String brand;

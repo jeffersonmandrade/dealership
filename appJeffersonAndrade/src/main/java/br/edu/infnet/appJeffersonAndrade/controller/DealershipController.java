@@ -1,12 +1,9 @@
 package br.edu.infnet.appJeffersonAndrade.controller;
 
 import br.edu.infnet.appJeffersonAndrade.domain.Dealership;
-import br.edu.infnet.appJeffersonAndrade.domain.Motorcycle;
 import br.edu.infnet.appJeffersonAndrade.service.DealershipService;
-import br.edu.infnet.appJeffersonAndrade.service.MotorcycleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -18,7 +15,23 @@ public class DealershipController {
 
     @GetMapping("dealership/listar")
     public Collection<Dealership> listar() {
+        return dealershipService.getAll();
+    }
 
-        return dealershipService.listar();
+    @GetMapping("dealership/{id}")
+    public Dealership getDealership(@PathVariable Integer id) {
+        return  dealershipService.geById(id);
+    }
+
+    @PostMapping("delearship/creat")
+    public String createDealership(@RequestBody Dealership dealership) {
+        dealershipService.create(dealership);
+        return "Criado com sucesso!";
+    }
+
+    @DeleteMapping("dealership/{id}")
+public String deleteDealership(@PathVariable Integer id) {
+        dealershipService.deleteById(id);
+        return " Deletado com sucesso!";
     }
 }

@@ -7,11 +7,8 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
@@ -38,13 +35,13 @@ public class CarLoader implements ApplicationRunner {
 
 
                 Car car = new Car();
-                this.carService.incluir(car);
+                this.carService.create(car);
             });
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        for(Car c : carService.listar()){
+        for(Car c : carService.getAll()){
             System.out.println("[CAR]: " + c);
     }
 
