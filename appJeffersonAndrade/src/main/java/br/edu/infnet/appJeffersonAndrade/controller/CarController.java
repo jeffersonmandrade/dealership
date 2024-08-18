@@ -14,11 +14,13 @@ public class CarController {
     @Autowired
     private CarService carService;
 
+    @CrossOrigin(origins = "http://localhost:3000") // Permite CORS para esta origem específica
     @GetMapping("car/list")
     public Collection<Car> getAllCars() {
        return carService.getAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("car/{id}")
     public Car getCar(@PathVariable Integer id) {
         return  carService.geById(id);

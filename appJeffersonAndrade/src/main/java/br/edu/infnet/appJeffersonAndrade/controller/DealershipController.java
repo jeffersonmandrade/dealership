@@ -15,16 +15,19 @@ public class DealershipController {
     @Autowired
     private DealershipService dealershipService;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("dealership/list")
     public Collection<Dealership> listar() {
         return dealershipService.getAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("dealership/{id}")
     public Dealership getDealership(@PathVariable Integer id) {
         return  dealershipService.geById(id);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("delearship/creat")
     public String createDealership(@RequestBody DealershipDTO dealership) {
         dealershipService.create(dealership.toDomain());

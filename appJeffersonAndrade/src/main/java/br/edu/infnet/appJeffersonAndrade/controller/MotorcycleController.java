@@ -14,12 +14,14 @@ public class MotorcycleController {
     @Autowired
     private MotorcycleService motorcycleService;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("motorcycle/list")
     public Collection<Motorcycle> getAllMotorcycles() {
 
         return motorcycleService.getAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("motorcycle/{id}")
     public Motorcycle getMotorcycles(@PathVariable Integer id) {
         return  motorcycleService.geById(id);
