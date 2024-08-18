@@ -1,9 +1,9 @@
-D;Auto Center;contact@autocenter.com;+55 11 98765-4321;12.345.678/0001-90
-M;Harley-Davidson;Sportster;Black;2020;Gasoline;Cruiser;883;Electric
-C;Toyota;Camry;Silver;2022;Gasoline;4;450.0;true
-D;Speed Motors;info@speedmotors.com;+55 21 99876-5432;23.456.789/0001-01
-M;Yamaha;MT-07;Gray;2021;Gasoline;Sport;1000;Kick
-C;Ford;F-150;Black;2021;Gasoline;2;300.5;false
-D;Luxury Autos;service@luxuryautos.com;+55 31 91234-5678;34.567.890/0001-12
-M;Kawasaki;Ninja;Green;2022;Gasoline;Touring;1200;Electric
-C;Honda;Accord;White;2023;Hybrid;5;500.0;true
+D;1;Auto Center;contact@autocenter.com;+55 11 98765-4321;12.345.678/0001-90
+M;1;Harley-Davidson;Sportster;Black;2020;Gasoline;Cruiser;883;Electric
+C;2;Toyota;Camry;Silver;2022;Gasoline;4;450.0;true
+D;2;Speed Motors;info@speedmotors.com;+55 21 99876-5432;23.456.789/0001-01
+M;1;Yamaha;MT-07;Gray;2021;Gasoline;Sport;1000;Kick
+C;2;Ford;F-150;Black;2021;Gasoline;2;300.5;false
+D;3;Luxury Autos;service@luxuryautos.com;+55 31 91234-5678;34.567.890/0001-12
+M;1;Kawasaki;Ninja;Green;2022;Gasoline;Touring;1200;Electric
+C;2;Honda;Accord;White;2023;Hybrid;5;500.0;true

@@ -4,6 +4,9 @@ import br.edu.infnet.appJeffersonAndrade.domain.Automobile;
 import br.edu.infnet.appJeffersonAndrade.domain.Car;
 import br.edu.infnet.appJeffersonAndrade.domain.Dealership;
 import br.edu.infnet.appJeffersonAndrade.domain.Motorcycle;
+import br.edu.infnet.appJeffersonAndrade.service.CarService;
+import br.edu.infnet.appJeffersonAndrade.service.DealershipService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -18,77 +21,94 @@ import java.util.stream.Stream;
 
 @Component
 public class DealershipLoader implements ApplicationRunner {
+    @Autowired
+    private DealershipService dealershipService;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
         String filePath = "appJeffersonAndrade/files/dealership.txt";
 
-        Dealership dealership = new Dealership();
-         AtomicReference<Integer> id = new AtomicReference<>(1);
+//        AtomicReference<Integer> id = new AtomicReference<>(1);
         Map<Integer, Automobile> map = new HashMap<Integer, Automobile>();
 
+        Dealership dealership = null;
+
         try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
-            lines.forEach(line -> {
+
+            for (String line : (Iterable<String>) lines::iterator) {
                 String[] elements = line.split(";");
                 switch (elements[0].toUpperCase()) {
                     case "D":
-                        String name = elements[1].trim();
-                        String email = elements[2].trim();
-                        String phone = elements[3].trim();
-                        String cnpj = elements[4].trim();
 
+                        if (dealership != null) {
+                            dealershipService.create(dealership);
+                        }
+                        dealership = new Dealership();
+
+                        Integer iD = Integer.parseInt(elements[1].trim());
+                        String name = elements[2].trim();
+                        String email = elements[3].trim();
+                        String phone = elements[4].trim();
+                        String cnpj = elements[5].trim();
+
+                        dealership.setId(iD);
                         dealership.setName(name);
                         dealership.setEmail(email);
                         dealership.setPhone(phone);
                         dealership.setCnpj(cnpj);
                         break;
                     case "M":
-                        String brand = elements[1].trim();
-                        String model = elements[2].trim();
-                        String color = elements[3].trim();
-                        int year = Integer.parseInt(elements[4].trim());
-                        String fuelType = elements[5].trim();
-                        String motorcycleType = elements[6].trim();
-                        int engineDisplacement = Integer.parseInt(elements[7].trim());
-                        String startType = elements[8].trim();
+                        if (dealership == null) {
+                            throw new IllegalStateException("A Motorcycle was found before a Dealership.");
+                        }
+                        int id = Integer.parseInt(elements[1].trim());
+                        String brand = elements[2].trim();
+                        String model = elements[3].trim();
+                        String color = elements[4].trim();
+                        int year = Integer.parseInt(elements[5].trim());
+                        String fuelType = elements[6].trim();
+                        String motorcycleType = elements[7].trim();
+                        int engineDisplacement = Integer.parseInt(elements[8].trim());
+                        String startType = elements[9].trim();
 
-                        Motorcycle moto = new Motorcycle(brand, fuelType, year, color, model, engineDisplacement, startType, motorcycleType);
-
-                        moto.setId(id.get());
-                        map.put(id.get(), moto);
-                        id.set(id.get() + 1);
+                        Motorcycle moto = new Motorcycle(id, brand, fuelType, year, color, model, engineDisplacement, startType, motorcycleType);
 
                         dealership.getAutomobiles().add(moto);
-                        System.out.println(dealership.toString());
                         break;
                     case "C":
-                        brand = elements[1].trim();
-                        model = elements[2].trim();
-                        color = elements[3].trim();
-                        year = Integer.parseInt(elements[4].trim());
-                        fuelType = elements[5].trim();
-                        int numberOfDoors = Integer.parseInt(elements[6].trim());
-                        double trunkSize = Double.parseDouble(elements[7].trim());
-                        boolean hasSunroof = Boolean.parseBoolean(elements[8].trim());
+                        if (dealership == null) {
+                            throw new IllegalStateException("A Car was found before a Dealership.");
+                        }
+                        id = Integer.parseInt(elements[1].trim());
+                        brand = elements[2].trim();
+                        model = elements[3].trim();
+                        color = elements[4].trim();
+                        year = Integer.parseInt(elements[5].trim());
+                        fuelType = elements[6].trim();
+                        int numberOfDoors = Integer.parseInt(elements[7].trim());
+                        double trunkSize = Double.parseDouble(elements[8].trim());
+                        boolean hasSunroof = Boolean.parseBoolean(elements[9].trim());
 
-                        Car car = new Car(brand, fuelType, year, color, model, numberOfDoors, trunkSize, hasSunroof);
-
-                        car.setId(id.get());
-                        map.put(id.get(), car);
-                        id.set(id.get() + 1);
+                        Car car = new Car(id, brand, fuelType, year, color, model, numberOfDoors, trunkSize, hasSunroof);
 
                         dealership.getAutomobiles().add(car);
-
-                        System.out.println(dealership.toString());
                         break;
                     default:
                         System.out.println("Unknown type: " + elements[0].toUpperCase());
                 }
-            });
+            }
+
+            if (dealership != null) {
+                dealershipService.create(dealership);
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for(Automobile automobile : map.values()) {
+
+        for (Automobile automobile : map.values()) {
             System.out.println("[Automobile]: " + automobile);
         }
     }
+
 }

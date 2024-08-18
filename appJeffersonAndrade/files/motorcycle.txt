@@ -1,0 +1,3 @@
+1;Harley-Davidson;Sportster;Black;2020;Gasoline;Cruiser;883;Electric
+2;Yamaha;MT-07;Gray;2021;Gasoline;Sport;1000;Kick
+3;Kawasaki;Ninja;Green;2022;Gasoline;Touring;1200;Electric

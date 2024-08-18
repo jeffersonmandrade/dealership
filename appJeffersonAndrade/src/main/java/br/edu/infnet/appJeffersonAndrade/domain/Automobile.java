@@ -18,7 +18,8 @@ public abstract class Automobile {
 
     private String fuelType;
 
-    public Automobile(String brand, String fuelType, int year, String color, String model) {
+    public Automobile(Integer id ,String brand, String fuelType, int year, String color, String model) {
+        this.id = id;
         this.brand = brand;
         this.fuelType = fuelType;
         this.year = year;

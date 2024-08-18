@@ -27,11 +27,18 @@ public class MotorcycleLoader implements ApplicationRunner {
             lines.forEach(line -> {
                 String[] elements = line.split(";");
 
-                String motorcycleType = elements[0].trim();
-                int engineDisplacement = Integer.parseInt(elements[1].trim());
-                String startType = elements[2].trim();
+                int id = Integer.parseInt(elements[0]);
+                String brand = elements[1].trim();
+                String model = elements[2].trim();
+                String color = elements[3].trim();
+                int year = Integer.parseInt(elements[4].trim());
+                String fuelType = elements[5].trim();
 
-                Motorcycle moto = new Motorcycle();
+                String motorcycleType = elements[6].trim();
+                int engineDisplacement = Integer.parseInt(elements[7].trim());
+                String startType = elements[8].trim();
+
+                Motorcycle moto = new Motorcycle(id,brand,fuelType,year,color,model,engineDisplacement,startType,motorcycleType);
                 motorcycleService.create(moto);
                 System.out.println(moto);
             });

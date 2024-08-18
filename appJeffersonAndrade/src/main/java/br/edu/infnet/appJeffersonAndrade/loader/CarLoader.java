@@ -29,12 +29,19 @@ public class CarLoader implements ApplicationRunner {
             lines.forEach(line -> {
                 String[] elements = line.split(";");
 
-                int numberOfDoors = Integer.parseInt(elements[0].trim());
-                double trunkSize = Double.parseDouble(elements[1].trim());
-                boolean hasSunroof = Boolean.parseBoolean(elements[2].trim());
+                int id = Integer.parseInt(elements[0]);
+                String brand = elements[1].trim();
+                String model = elements[2].trim();
+                String color = elements[3].trim();
+                int year = Integer.parseInt(elements[4].trim());
+                String fuelType = elements[5].trim();
+
+                int numberOfDoors = Integer.parseInt(elements[6].trim());
+                double trunkSize = Double.parseDouble(elements[7].trim());
+                boolean hasSunroof = Boolean.parseBoolean(elements[8].trim());
 
 
-                Car car = new Car();
+                Car car = new Car(id, brand,fuelType, year,color,model,numberOfDoors,trunkSize,hasSunroof);
                 this.carService.create(car);
             });
         } catch (IOException e) {
