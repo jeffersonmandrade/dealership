@@ -1,5 +1,6 @@
 package br.edu.infnet.appJeffersonAndrade.controller;
 
+import br.edu.infnet.appJeffersonAndrade.controller.dto.MotorcycleDTO;
 import br.edu.infnet.appJeffersonAndrade.domain.Motorcycle;
 import br.edu.infnet.appJeffersonAndrade.service.MotorcycleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,8 @@ public class MotorcycleController {
     }
 
     @PostMapping("motorcycle/creat")
-    public String createMotorcycles(@RequestBody Motorcycle motorcycle) {
-        motorcycleService.create(motorcycle);
+    public String createMotorcycles(@RequestBody MotorcycleDTO motorcycle) {
+        motorcycleService.create(motorcycle.toDomain());
         return "Criado com sucesso!";
     }
 

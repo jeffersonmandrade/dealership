@@ -13,6 +13,7 @@ public class Car  extends Automobile {
         this.hasSunroof = hasSunroof;
     }
 
+
     public Double getTrunkSize() {
         return trunkSize;
     }

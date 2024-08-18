@@ -1,5 +1,6 @@
 package br.edu.infnet.appJeffersonAndrade.controller;
 
+import br.edu.infnet.appJeffersonAndrade.controller.dto.CarDTO;
 import br.edu.infnet.appJeffersonAndrade.domain.Car;
 import br.edu.infnet.appJeffersonAndrade.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,8 @@ public class CarController {
     }
 
     @PostMapping("car/creat")
-    public String createCar(@RequestBody Car car) {
-        carService.create(car);
+    public String createCar(@RequestBody CarDTO car) {
+        carService.create(car.toDomain());
         return "Criado com sucesso!";
     }
 

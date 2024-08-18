@@ -11,11 +11,11 @@ import java.util.Map;
 public class DealershipService {
     private Map<Integer, Dealership>  mapa = new HashMap<>();
     private  Integer id = 0;
-
     public void create(Dealership dealership) {
         dealership.setId(++id);
         mapa.put(dealership.getId(), dealership);
         id = dealership.getId();
+        mapa.get(dealership.getId()).setId(++id);
     }
 
     public Collection<Dealership> getAll() {

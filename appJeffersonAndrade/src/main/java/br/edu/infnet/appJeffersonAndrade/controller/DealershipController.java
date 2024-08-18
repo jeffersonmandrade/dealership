@@ -1,5 +1,7 @@
 package br.edu.infnet.appJeffersonAndrade.controller;
 
+;
+import br.edu.infnet.appJeffersonAndrade.controller.dto.DealershipDTO;
 import br.edu.infnet.appJeffersonAndrade.domain.Dealership;
 import br.edu.infnet.appJeffersonAndrade.service.DealershipService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +26,8 @@ public class DealershipController {
     }
 
     @PostMapping("delearship/creat")
-    public String createDealership(@RequestBody Dealership dealership) {
-        dealershipService.create(dealership);
+    public String createDealership(@RequestBody DealershipDTO dealership) {
+        dealershipService.create(dealership.toDomain());
         return "Criado com sucesso!";
     }
 
