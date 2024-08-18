@@ -13,6 +13,7 @@ function App() {
         <Moto />
       </div>
       <div>
+      <h1>Car Dealerships</h1>
         <DealershipCars />
       </div>
     </div>
