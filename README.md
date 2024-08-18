@@ -16,7 +16,7 @@ To start the Spring Boot server, run the following command:
 
 ```bash
 ./mvnw spring-boot:run
-
+```
 __________________________________________________
 
 # Frontend
@@ -29,7 +29,7 @@ To start the React application, navigate to the frontend directory and run:
 
 ```bash
 npm start
-
+```
 __________________________________________________
 
 ### "The Postman collections are located in the appJeffersonAndrade/collection_postman folder."
