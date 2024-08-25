@@ -1,6 +1,8 @@
 package br.edu.infnet.appJeffersonAndrade.service;
 
 import br.edu.infnet.appJeffersonAndrade.domain.Dealership;
+import br.edu.infnet.appJeffersonAndrade.repository.DealershipRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -9,24 +11,22 @@ import java.util.Map;
 
 @Service
 public class DealershipService {
-    private Map<Integer, Dealership>  mapa = new HashMap<>();
-    private  Integer id = 0;
+    @Autowired
+    private DealershipRepository dealershipRepository;
+
     public void create(Dealership dealership) {
-        dealership.setId(++id);
-        mapa.put(dealership.getId(), dealership);
-        id = dealership.getId();
-        mapa.get(dealership.getId()).setId(++id);
+        dealershipRepository.save(dealership);
     }
 
     public Collection<Dealership> getAll() {
-        return mapa.values();
+        return dealershipRepository.findAll();
     }
 
     public Dealership geById(Integer id) {
-        return mapa.get(id);
+        return dealershipRepository.findById(id).get();
     }
 
     public void deleteById(Integer id) {
-        mapa.remove(id);
+        dealershipRepository.deleteById(id);
     }
 }

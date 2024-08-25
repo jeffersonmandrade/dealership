@@ -4,6 +4,7 @@ import br.edu.infnet.appJeffersonAndrade.controller.dto.MotorcycleDTO;
 import br.edu.infnet.appJeffersonAndrade.domain.Motorcycle;
 import br.edu.infnet.appJeffersonAndrade.service.MotorcycleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -24,11 +25,11 @@ public class MotorcycleController {
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("motorcycle/{id}")
     public Motorcycle getMotorcycles(@PathVariable Integer id) {
-        return  motorcycleService.geById(id);
+        return motorcycleService.geById(id);
     }
 
     @PostMapping("motorcycle/creat")
-    public String createMotorcycles(@RequestBody MotorcycleDTO motorcycle) {
+    public String createMotorcycles(@Validated @RequestBody MotorcycleDTO motorcycle) {
         motorcycleService.create(motorcycle.toDomain());
         return "Criado com sucesso!";
     }
